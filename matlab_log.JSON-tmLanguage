@@ -1,0 +1,44 @@
+{ "name": "MC Log",
+  "scopeName": ".mclog",
+  "fileTypes": ["mclog"],
+  "patterns": [
+      { "match": "[0-9]{4}-[0-9]{2}-[0-9]{2}.[0-9]{2}:[0-9]{2}:[0-9]{2}",
+        "name": "constant.numeric.mclog",
+        "comment": "Format Date"
+      },
+
+
+      { "match": "<.+ .+>",
+        "name": "entity.name.tag.mclog",
+        "comment": "User ID"
+      },
+
+
+      { "match": "\\[(Blacksmith|BOSsmith|BukkitCompat|Chat|ChestShop|CoreProtect|dynmap|Economy|Essentials|EssentialsAntiBuild|EssentialsChat|EssentialsGeoIP|EssentialsProtect|EssentialsSpawn|FoundDiamonds|GroupManager|INFO|LWC|MobArena|Permission|Permissions|Server|Sponsor|Vault|Votifier|WorldEdit|WorldGuard)\\]",
+        "name": "string.quoted.mclog",
+        "comment": "INFO MESSAGE"
+      },
+
+
+      { "match": "\\[WARNING\\] .+",
+        "name": "invalid.illegal.mclog",
+        "comment": "warning"
+      },
+
+      { "match": " (meth|method55|method|METHOD|METHOD55) ",
+        "name": "invalid.illegal.mclog",
+        "comment": "method"
+      },
+
+      { "match": "(\\w+) (issued server command:) (/.+)",
+        "name": "support.function.mclog",
+        "captures": {
+          "1": {"name": "entity.name.tag.mclog"},
+          "2": {"name": "support.function.mclog"},
+          "3": {"name": "support.variable.mclog"}
+        },
+        "comment": "Issued Command"
+      }
+  ],
+  "uuid": "91dd79c7-adef-43c9-84cf-fa90e5685d6d"
+}
